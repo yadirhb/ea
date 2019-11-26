@@ -24,7 +24,7 @@ public class LogAspect {
         logger.warn(new Date() + " method = " + jp.getSignature().getName() + " address=" + email + ", message=" + message + " outgoing mail server=" + outgoingServer);
     }
 
-    @Around("execution(* edu.mum.cs544.*DAO.*(*))") // Applies to any method withing any DAO class with any arguments.
+    @Around("execution(* edu.mum.cs544.*DAO.*(..))") // Applies to any method withing any DAO class with any arguments.
     public Object invoke(ProceedingJoinPoint call) throws Throwable {
         String methodName = call.getSignature().getName();
         StopWatch sw = new StopWatch();
